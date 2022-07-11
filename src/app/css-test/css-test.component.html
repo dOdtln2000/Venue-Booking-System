@@ -1,0 +1,10 @@
+<div class="container">
+  <a routerLink=""><button class="button">Back to home</button></a>
+</div>
+<hr width="100%">
+
+<div class="container">
+  <div *ngFor="let img of imgAll">
+    <img src="{{img.download_url}}">
+  </div>
+</div>

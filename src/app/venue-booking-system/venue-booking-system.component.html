@@ -1,0 +1,49 @@
+<div class="container">
+  <a routerLink=""><button class="button">Back to home</button></a>
+</div>
+<hr width="100%">
+<div style="text-align: center; font-weight: 700;">
+  CheckBooking
+</div>
+<form>
+<div class="row" style="margin: auto; width: 40%;">
+  <label>Select Room :</label>
+  <select class="minimal" [(ngModel)]="chkRoom" name="roomId">
+    <option *ngFor="let room of roomList" selected >{{room}}</option>
+  </select>
+</div>
+<br>
+<div class="row" style="margin: auto; width: 40%;">
+  <button type="submit" class="btn btn-info" style="width: 90%;" [disabled]="chkRoom==''" (click)="showDetailBooking()">Check</button>
+</div>
+</form>
+
+<hr width="100%">
+<div style="text-align: center; font-weight: 700;">
+  Booking
+</div>
+    <form [formGroup]="form" (ngSubmit)="checkAvailability()">
+      <div class="row">
+        <label>Select Room :</label>
+        <select class="minimal" formControlName="roomSelected" >
+          <option *ngFor="let room of roomList">{{room}}</option>
+        </select>
+      </div>
+      <br>
+      <div class="row">
+        <label>Start Date :</label>
+        <input type="datetime-local" id="startTime" formControlName="startTime">
+
+      </div>
+      <br>
+
+      <div class="row">
+        <label>End Date :</label>
+        <input type="datetime-local" id="endTime" formControlName="endTime">
+      </div>
+      <br>
+
+      <button type="submit" class="btn btn-success" style="width: 49%; float: left;">Confirm</button>
+      <button type="button" class="btn btn-danger" style="width: 49%; float: right;" (click)="clear()">Clear</button>
+
+  </form>

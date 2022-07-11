@@ -1,0 +1,21 @@
+<div class="container">
+  <a routerLink="/bookingSystem"><button class="button">Back</button></a>
+</div>
+<hr width="100%">
+
+<div class="container">
+  <h2 style="text-align: center;">Booking of the room [{{roomID}}] in this Month.</h2>
+  <table style="width:80%">
+      <tr>
+        <td>Start Time</td>
+        <td>End Time</td>
+        <td>Title</td>
+      </tr>
+      <tr *ngFor="let binM of BookingInMonth">
+        <td>{{binM.startTime}}</td>
+        <td>{{binM.endTime}}</td>
+        <td>{{binM.title}}</td>
+      </tr>
+  </table>
+  
+</div>
